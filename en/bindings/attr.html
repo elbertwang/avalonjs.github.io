@@ -11,30 +11,30 @@
     <code class='language-javascript'>ms-value</code>、<code class='language-javascript'>ms-title</code>、 
     <code class='language-javascript'>ms-alt</code>、<code class='language-javascript'>ms-href</code>、
     <code class='language-javascript'>ms-src</code>这五个<b>字符串属性绑定</b>，
-    及<code class='language-javascript'>ms-attr-*</code>这个<span>万能属性绑定</span>。
+    及<code class='language-javascript'>ms-attr-*</code>This is an <span>universal property binding.</span>。
     不过， 随着如何判定固有属性的技术的发掘，它们最终都是通过ms-attr-*实现。</p>
 <p><img src="zh/bindings/attr/attr0.jpg" alt="enter image description here" title />
 <p>从宏观来说，ms-attr-*可以代替上面所有指令，但根据专人专办的原则，使用对应的指令其效果更佳，并且还有其他更好的服务。</p>
 <table class="shim-table">
     <tr>
-        <td>ms-class-*="expr"</td> <td>ms-attr-class="expr"</td> <td>建议使用前者(前者更强大)</td>
+        <td>ms-class-*="expr"</td> <td>ms-attr-class="expr"</td> <td>recommend first one(more powerful)</td>
     </tr>
     <tr>
-        <td>ms-value="expr"</td> <td>ms-attr-value="expr"</td> <td>建议使用后者（前者已经废弃），但更建议使用ms-duplex</td>
+        <td>ms-value="expr"</td> <td>ms-attr-value="expr"</td> <td>recommand last one (first one is not using any more),futhermore ms-duplex is the best recommendation</td>
     </tr>
     <tr>
-        <td>ms-alt="expr"</td> <td>ms-attr-alt="expr"</td> <td>建议使用后者（前者已经废弃）</td>
+        <td>ms-alt="expr"</td> <td>ms-attr-alt="expr"</td> <td>recommand last one (first one is not using any more)</td>
     </tr>
-    <tr><td>ms-title="expr"</td> <td>ms-attr-title="expr"</td> <td>建议使用后者（前者已经废弃）</td></tr>
-    <tr><td>ms-src="expr"</td> <td>ms-attr-src="expr"</td> <td>建议使用后者</td></tr>
-    <tr><td>ms-href="expr"</td> <td>ms-attr-href="expr"</td> <td>建议使用后者</td></tr>
-    <tr><td>ms-selected="expr"</td> <td>ms-attr-selected="expr"</td> <td>建议使用后者（前者已经废弃）</td></tr>
-    <tr><td>ms-checked="expr"</td> <td>ms-attr-checked="expr"</td> <td>建议使用后者（前者已经废弃）</td></tr>
-    <tr><td>ms-readonly="expr"</td> <td>ms-attr-readonly="expr"</td> <td>建议使用后者（前者已经废弃）</td></tr>
-    <tr><td>ms-disabled="expr"</td> <td>ms-attr-disabled="expr"</td> <td>建议使用后者（前者已经废弃）</td></tr>
-    <tr><td>ms-enabled="expr"</td> <td>ms-attr-disabled="!(expr)"</td> <td>建议使用后者（前者已经废弃）</td> </tr>
+    <tr><td>ms-title="expr"</td> <td>ms-attr-title="expr"</td> <td>recommand last one (first one is not using any more)</td></tr>
+    <tr><td>ms-src="expr"</td> <td>ms-attr-src="expr"</td> <td>recommand last one</td></tr>
+    <tr><td>ms-href="expr"</td> <td>ms-attr-href="expr"</td> <td>recommand last one</td></tr>
+    <tr><td>ms-selected="expr"</td> <td>ms-attr-selected="expr"</td> <td>recommand last one (first one is not using any more)</td></tr>
+    <tr><td>ms-checked="expr"</td> <td>ms-attr-checked="expr"</td> <td>recommand last one (first one is not using any more)</td></tr>
+    <tr><td>ms-readonly="expr"</td> <td>ms-attr-readonly="expr"</td> <td>recommand last one (first one is not using any more)</td></tr>
+    <tr><td>ms-disabled="expr"</td> <td>ms-attr-disabled="expr"</td> <td>recommand last one (first one is not using any more)</td></tr>
+    <tr><td>ms-enabled="expr"</td> <td>ms-attr-disabled="!(expr)"</td> <td>recommand last one (first one is not using any more)</td> </tr>
 </table>
-<p>注意， 这个绑定只处理属性，不处理样式， 如ms-attr-style="background:red"</p>
+<p>Be careful, this binding is only processing property not style, like ms-attr-style="background:red"</p>
 
 <pre class="brush:html;gutter:false;toolbar:false">
 
