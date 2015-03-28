@@ -1,20 +1,20 @@
-<p>属性操作是DOM操作很大的一块，它包括类名操作，表单元素的value属性操作，元素固有属性的管理，
-    元素自定义属性的管理，某些元素的一些布尔属性的操作。大多数情况下，元素属性的值是字符串类型，
-    我们称之为字符串属性，但有一些属性的是布尔，也存在是数字类型、节点引用的情况。
-    当前jQuery处理它们就是搞了N个钩子对象，才摆平它们。<a href="https://github.com/RubyLouvre/avalon">avalon</a>为了收拾它们也设置N多绑定，
-    其中类名部分交由<code class='language-javascript'>ms-class</code>、 <code class='language-javascript'>ms-hover</code>、
-    <code class='language-javascript'>ms-active</code>处理，这些其他章节介绍；表单元素的value属性之前也说过，
-    可以用<code class='language-javascript'>ms-duplex</code>；剩下还有<code class='language-javascript'>ms-checked</code>、
-    <code class='language-javascript'>ms-selected</code>、 <code class='language-javascript'>ms-readonly</code>、
-    <code class='language-javascript'>ms-disabled</code>、 
-    <code class='language-javascript'>ms-enabled</code>这五个专门处理表单元素的<b>布尔属性绑定</b>，
-    <code class='language-javascript'>ms-value</code>、<code class='language-javascript'>ms-title</code>、 
-    <code class='language-javascript'>ms-alt</code>、<code class='language-javascript'>ms-href</code>、
-    <code class='language-javascript'>ms-src</code>这五个<b>字符串属性绑定</b>，
-    及<code class='language-javascript'>ms-attr-*</code>This is an <span>universal property binding.</span>。
-    不过， 随着如何判定固有属性的技术的发掘，它们最终都是通过ms-attr-*实现。</p>
+<p>属性操作是DOM操作很大的一块,它包括类名操作,表单元素的value属性操作,元素固有属性的管理,
+    元素自定义属性的管理,某些元素的一些布尔属性的操作。大多数情况下,元素属性的值是字符串类型,
+    我们称之为字符串属性,但有一些属性的是布尔,也存在是数字类型,节点引用的情况。
+    当前jQuery处理它们就是搞了N个钩子对象,才摆平它们。<a href="https://github.com/RubyLouvre/avalon">avalon</a>为了收拾它们也设置N多绑定,
+    其中类名部分交由<code class='language-javascript'>ms-class</code>, <code class='language-javascript'>ms-hover</code>,
+    <code class='language-javascript'>ms-active</code>处理,这些其他章节介绍；表单元素的value属性之前也说过,
+    可以用<code class='language-javascript'>ms-duplex</code>；剩下还有<code class='language-javascript'>ms-checked</code>,
+    <code class='language-javascript'>ms-selected</code>, <code class='language-javascript'>ms-readonly</code>,
+    <code class='language-javascript'>ms-disabled</code>, 
+    <code class='language-javascript'>ms-enabled</code>These five above are processing <b>boolean properties</b> of form elements.
+    <code class='language-javascript'>ms-value</code>,<code class='language-javascript'>ms-title</code>,
+    <code class='language-javascript'>ms-alt</code>,<code class='language-javascript'>ms-href</code>,
+    <code class='language-javascript'>ms-src</code>These five are <b>string property binding. </b>,
+    And <code class='language-javascript'>ms-attr-*</code> is an <span>universal property binding.</span>。
+    不过, 随着如何判定固有属性的技术的发掘,它们最终都是通过ms-attr-*实现。</p>
 <p><img src="zh/bindings/attr/attr0.jpg" alt="enter image description here" title />
-<p>从宏观来说，ms-attr-*可以代替上面所有指令，但根据专人专办的原则，使用对应的指令其效果更佳，并且还有其他更好的服务。</p>
+<p>从宏观来说,ms-attr-*可以代替上面所有指令,但根据专人专办的原则,使用对应的指令其效果更佳,并且还有其他更好的服务。</p>
 <table class="shim-table">
     <tr>
         <td>ms-class-*="expr"</td> <td>ms-attr-class="expr"</td> <td>recommend first one(more powerful)</td>
@@ -96,10 +96,10 @@
 &lt;/html&gt;
 </pre>
 <p><img src="zh/bindings/attr/attr2.gif" alt="enter image description here" title />
-<p ms-skip>avalon1.37的属性绑定大屠杀中，所有布尔属性绑定被砍掉(ms-disabled, ms-enabled, ms-selected, ms-checked, ms-readonly), 
-    ms-value, ms-title, ms-alt也被废弃掉，它们需要用ms-attr-*代替。
+<p ms-skip>avalon1.37的属性绑定大屠杀中,所有布尔属性绑定被砍掉(ms-disabled, ms-enabled, ms-selected, ms-checked, ms-readonly), 
+    ms-value, ms-title, ms-alt也被废弃掉,它们需要用ms-attr-*代替。
 
-    因此现在只剩下ms-attr, ms-src, ms-href这三个处理字符串的属性绑定，外加上ms-css, ms-include， 
+    因此现在只剩下ms-attr, ms-src, ms-href这三个处理字符串的属性绑定,外加上ms-css, ms-include, 
     这五个东西都在属性值里面使用{{}}插值表达式。</p>
 
 <pre class="brush:html;gutter:false;toolbar:false">
@@ -127,15 +127,15 @@
 <p><img src="zh/bindings/attr/1414746091609-ggggg.jpg" alt="enter image description here" title />
 <fieldset>
     <legend>小知识</legend>
-    <p>在IE下，需要对属性进行区分，如果是<strong>固有属性</strong>使用elem[name] =
-        value赋值；是<strong>自定义属性</strong>，则直接使用elem.setAttribute(name,
-        value)；标准浏览器没有这么麻烦，全部使用elem.setAttribute(name,
-        value)，比如elem.setAttribute("value", "xxx")会自动同步到elee.value = "xxx"。</p>
+    <p>在IE下,需要对属性进行区分,如果是<strong>固有属性</strong>使用elem[name] =
+        value赋值；是<strong>自定义属性</strong>,则直接使用elem.setAttribute(name,
+        value)；标准浏览器没有这么麻烦,全部使用elem.setAttribute(name,
+        value),比如elem.setAttribute("value", "xxx")会自动同步到elee.value = "xxx"。</p>
     <pre class="brush:javascript;gutter:false;toolbar:false">
       if (boolMap[attrName]) {
             var bool = boolMap[attrName]
             if (typeof elem[bool] === "boolean") {
-                // IE6-11不支持动态设置fieldset的disabled属性，IE11下样式是生效了，
+                // IE6-11不支持动态设置fieldset的disabled属性,IE11下样式是生效了,
                 // 但无法阻止用户对其底下的input元素进行设值……
                 return elem[bool] = !!val
             }
@@ -155,7 +155,7 @@
             elem.setAttribute(attrName, val)
         }
     </pre>
-    <p>有关如何判定自定义属性或固有属性，及其详细推导过程，可以看<a href="http://www.cnblogs.com/rubylouvre/p/3658441.html">我的书《javascript框架设计》</a>的第十章。</p>
+    <p>有关如何判定自定义属性或固有属性,及其详细推导过程,可以看<a href="http://www.cnblogs.com/rubylouvre/p/3658441.html">我的书《javascript框架设计》</a>的第十章。</p>
 
 </fieldset>
 
